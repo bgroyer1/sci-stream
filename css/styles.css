@@ -1,5 +1,4 @@
 html, body {
-    margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
 } 
@@ -12,10 +11,56 @@ body {
     Layout
    ================= */
 
+.environment {
+  grid-area: e;
+}
+
+.technology {
+  grid-area: t;
+}
+
+.physics {
+  grid-area: p;
+}
+
+.nasa {
+  grid-area: n;
+}
+
+.health {
+  grid-area: h;
+}
+
 main {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
+  grid-template-areas: 
+  't'
+  'e'
+  'n'
+  'p'
+  'h';
+  gap: 1em; 
+}
+
+@media(min-width: 500px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    't t'
+    'e n'
+    'p n'
+    'h h';
+  }
+}
+
+@media(min-width: 768px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: 
+      't t t t t t e e e n n n'
+      'p p p h h h h h h n n n'
+    ;
+  }
 }
 
 /* =================
@@ -92,3 +137,4 @@ img {
     border-top-left-radius: .2em;
     border-top-right-radius: .2em;
 }
+
